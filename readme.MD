@@ -1,5 +1,8 @@
 Rédaction en cours ...
 
+
+<h1>KICHOU BOT  POUR DISCORD</h1>
+
 kichou.py est un bot interactif qui réagit en fonction de mots ou de commandes
 
 qu'il vois passer sur les channels. il dispose d'un dictionnaire dont
