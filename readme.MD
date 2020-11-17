@@ -3,7 +3,7 @@ Rédaction en cours ...
 
 <h1>KICHOU BOT  POUR DISCORD</h1>
 
-![GitHub Logo](link.png)
+![GitHub Logo](images/link.png)
 
 kichou.py est un bot interactif qui réagit en fonction de mots ou de commandes
 
