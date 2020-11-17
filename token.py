@@ -1,1 +1,1 @@
-token='mettre ici le tohen de votre bot'
+token='mettre ici le token de votre bot'
