@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 # coding: utf-8
+_______________________________________________ MAIN________________________________
 import discord
 import time
 
