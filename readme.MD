@@ -20,4 +20,12 @@ signes spéciaux utilisés dans un message
 
 " anti effacement
 
+references :
+
+discord.py https://github.com/Rapptz/discord.py
+
+documentation https://discordpy.readthedocs.io/en/latest/index.html
+
+Créer un bot discord ! Python (Création + démarrage)  https://www.youtube.com/watch?v=AeCytN_eQII
+
 
