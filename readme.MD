@@ -1,5 +1,32 @@
 Rédaction en cours ...
 
+kichou.py est un bot interactif qui réagit en fonction de mots ou de commandes
+
+qu'il vois passer sur les channels. il dispose d'un dictionnaire dont
+
+les clef sont des mot qui vois passer sur les channels et de réponses qui pourront être faite en fonction de ces mots.
+
+quelques commandes permettent d'ajouter dynamiquement à ce dictionnaire comme
+
+kichou ajoute clef:valeur
+kichou retire clef
+kichou sauvegarde le dictionaire
+
+kichou est le nom de mon bot vous pouvez en début de fichier personaliser kichou par le nom de votre bot
+
+beaucoup d'exemples #commentaires sont a l'intérieur du fichier kichou.py a vous de découvrir
+
+exemple:
+
+clear 10
+
+vous permet d'effacer les 10 derniers message dans un channel ....
+
+amuser vous bien
+
+Djsyl alias Olive ou Sylvain ;)
+
+
 Prérequis :
 
 un compte discord
