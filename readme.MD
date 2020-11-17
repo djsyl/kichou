@@ -26,6 +26,8 @@ amuser vous bien
 
 Djsyl alias Olive ou Sylvain ;)
 
+ps: pour la petite histoire kichou est le surnom de mon chat qui se nome link !
+
 
 Prérequis :
 
