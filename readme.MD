@@ -18,4 +18,6 @@ signes spéciaux utilisés dans un message
 
 § permet d'effacer un message aprés 15 secondes
 
+" anti effacement
+
 
