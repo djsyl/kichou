@@ -9,14 +9,17 @@ les clef sont des mot qui vois passer sur les channels et de réponses qui pourr
 quelques commandes permettent d'ajouter dynamiquement à ce dictionnaire comme
 
 kichou ajoute clef:valeur
+
 kichou retire clef
+
 kichou sauvegarde le dictionaire
+
 
 kichou est le nom de mon bot vous pouvez en début de fichier personaliser kichou par le nom de votre bot
 
 beaucoup d'exemples #commentaires sont a l'intérieur du fichier kichou.py a vous de découvrir
 
-exemple:
+**exemple:**
 
 clear 10
 
@@ -29,7 +32,8 @@ Djsyl alias Olive ou Sylvain ;)
 ps: pour la petite histoire kichou est le surnom de mon chat qui se nome link !
 
 
-Prérequis :
+
+**Prérequis :**
 
 un compte discord
 
@@ -49,7 +53,9 @@ signes spéciaux utilisés dans un message
 
 " anti effacement
 
-references :
+
+
+**references :**
 
 discord.py https://github.com/Rapptz/discord.py
 
