@@ -29,3 +29,4 @@ dickichou["tata"]="Tu veut dire tata yoyo ?"
 dickichou["faut"]="Le gran yaka fo con !"
 dickichou["étonne"]="Tu m'étonne John 🤣"
 dickichou["ok"]="https://tenor.com/view/ok-mickey-mouse-okay-good-gif-11256493 §"
+
