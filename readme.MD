@@ -60,7 +60,7 @@ signes spéciaux utilisés dans un message
 
 
 
-**references :**
+**réferences :**
 
 discord.py https://github.com/Rapptz/discord.py
 
