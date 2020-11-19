@@ -138,7 +138,7 @@ class MyClient(discord.Client):
                 f.write('T2={}\n'.format(self.timer2))
                 f.write('dickichou={}\n')
                 for k,v in dickichou.items():
-                    f.write('dickichou["{}"]="{}"\n'.format(k,v))
+                    f.write('dickichou["{}"]="{}"\n'.format(k,v.replace('"', '\\"')))
                 f.close
             await message.channel.send('dictionnaire et timers sauvegardés')
             return
