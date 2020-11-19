@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 # coding: utf-8
-#_______________________________________________ MAIN________________________________
 import discord
 import time
 
@@ -12,16 +11,20 @@ from tokenkichou import token #token du bot il faut créer un fichier tokenkicho
 # avec une ligne token ='le token de votre bot'
 ####################################################################################
 
-from dickichou import dickichou # dictionaire des mots reconnus par le boot
+from dickichou import dickichou,T1,T2 # dictionnaire des mots reconnus par le boot
 
 class MyClient(discord.Client):
-    global dickichou # dictionaire
+    global dickichou # dictionnaire
+    global T1
+    global T2
 
-    timer1 = 10  #timing §
-    timer2 = 120 #timing œ
+    timer1 = T1  #timing §
+    timer2 = T2 #timing œ
+ 
+
     jeux='off'
     cannaux =["général","test"]      # utilisable en restrictions ex : if message.channel     in self.cannaux:
-    utilisateurs = ["Olive","iPapy",bot,"margotte"] # utilisable en restrictions ex : if message.author.name in self.utilisateurs:
+    utilisateurs = ["Olive","iPapy",bot,"margotte","jpty"] # utilisable en restrictions ex : if message.author.name in self.utilisateurs:
 
     async def on_ready(self):
         await client.change_presence(status=discord.Status.online, activity=discord.Game('{}'.format(jouea)))
@@ -73,37 +76,30 @@ class MyClient(discord.Client):
         print()        
 
 
+
         if 1 == 1 :#tous les channels
         #if (str(message.channel)=='général') or (str(message.channel)=='test'): #seulement ces channels
             print('{} canal: {} de: {} message: {}'.format(bot,message.channel,message.author,message.content))
             print('ID message: {}'.format(message.id))
             print('')
-        if str(message.content).lower().find('"') >= 0 :
+        if str(message.content).lower().find('+') >= 0 :
             print('pas de réaction')
             return
-        if message.author != self.user: #si c'est le bot qui a envoyer
-            if (1==1):
-                if str(message.content).lower().find('§') >= 0 :
-                    print('debug: {}'.format('A'))
-                    await message.delete(delay=self.timer1)
-                if str(message.content).lower().find('œ') >= 0 :
-                    print('debug: {}'.format('B'))
-                    await message.delete(delay=self.timer2)
-        if message.author == self.user:
-            if str(message.content).lower().find('§') >= 0 :
-                print('debug: {}'.format('C'))
-                await message.delete(delay=self.timer1)
-            return
-        if message.author == self.user:
-            if str(message.content).lower().find('œ') >= 0 :
-                print('debug: {}'.format('D'))
-                await message.delete(delay=self.timer2)
-            return
+
+
+
+
+        if str(message.content).lower().find('§') >= 0 :
+            print('debug: {}'.format('A'))
+            await message.delete(delay=self.timer1)
+        if str(message.content).lower().find('œ') >= 0 :
+            print('debug: {}'.format('B'))
+            await message.delete(delay=self.timer2)
 
         #COMMANDES simple en début de ligne #######################################################
         if message.content.startswith('>hello') or message.content.startswith('>Hello'):
             await message.channel.send('H e l l o, comment vas-tu {} ?'.format(message.author.name))
-        #_________________ A revoir avec l'histoire du dictionaire __________________________________
+        #_________________ A revoir avec l'histoire du dictionnaire __________________________________
         if message.content.startswith('>aide') or message.content.startswith('>aide'):
             await message.channel.send('```md\n#Liste des commandes :\n>aide >hello, >miaou, jeux on, jeux off, jeux\
  \n\n#mots déclancheur :\navion, mdr, pelle, miaou, mousse, bonjour, hello, apero, apéro,\
@@ -134,18 +130,20 @@ class MyClient(discord.Client):
                 await message.channel.send('Ta perdu {} Tu a dit NON !'.format(message.author.name))
                 await message.channel.send('https://tenor.com/view/non-nan-the-cabbage-soup-gif-5034277 §')
 
-        #COMMANDES kichou sauvegarde le dictionaire ###################################################
-        cmd= bot + ' sauvegarde le dictionaire'
+        #COMMANDES kichou sauvegarde le dictionnaire ###################################################
+        cmd= bot + ' sauvegarde le dictionnaire'
         if message.content.startswith(cmd) and message.author.name in self.utilisateurs :
             with open('dickichou.py', 'w') as f:
+                f.write('T1={}\n'.format(self.timer1))
+                f.write('T2={}\n'.format(self.timer2))
                 f.write('dickichou={}\n')
                 for k,v in dickichou.items():
                     f.write('dickichou["{}"]="{}"\n'.format(k,v))
                 f.close
-            await message.channel.send('Dictionaire sauvegardé')
+            await message.channel.send('dictionnaire et timers sauvegardés')
             return
             
-        #COMMANDES kichou ajoute clef:value ### et opérations sur dictionaire dickichou
+        #COMMANDES kichou ajoute clef:value ### et opérations sur dictionnaire dickichou
         cmd= bot + ' ajoute '
         if message.content.startswith(cmd) and message.author.name in self.utilisateurs :
             rep = message.content[len(cmd):len(message.content)]
@@ -155,7 +153,7 @@ class MyClient(discord.Client):
 
             dickichou[clef] = value 
 
-            await message.channel.send('Dictionaire '+bot+', ajout de la Clef={} Valeur={}'.format(clef,value))
+            await message.channel.send('dictionnaire '+bot+', ajout de la Clef={} Valeur={}'.format(clef,value))
             return
 
         cmd= bot+' retire '
@@ -163,14 +161,14 @@ class MyClient(discord.Client):
             rep = message.content[len(cmd):len(message.content)]
             if dickichou.get(rep) != None:
                 del dickichou[rep]
-                await message.channel.send('Dictionaire '+bot+', Clef={} Supprimée !'.format(rep))
+                await message.channel.send('dictionnaire '+bot+', Clef={} Supprimée !'.format(rep))
                 return
             else :
-                await message.channel.send("Dictionaire "+bot+", La Clef={} n'existe pas !".format(rep))
+                await message.channel.send("dictionnaire "+bot+", La Clef={} n'existe pas !".format(rep))
                 return
 
         
-        cmd= bot+' dictionaire' ################ A REVOIR
+        cmd= bot+' dictionnaire' ################ A REVOIR
         if message.content.startswith(cmd) and message.author.name in self.utilisateurs :
             for k,v in dickichou.items():
                 print('{} : {}"'.format(k,v))
@@ -178,10 +176,11 @@ class MyClient(discord.Client):
         
         
         
-        #DETECTION MOT DIC KICHOU ##############################################################     
-        for k,v in dickichou.items() :
-            if k.lower() in str(message.content).lower() :
-                await message.channel.send('{}'.format(v))       
+        #DETECTION MOT DIC KICHOU ###########################################################  
+        if message.author.name != bot :   
+            for k,v in dickichou.items() :
+                if k.lower() in str(message.content).lower() :
+                    await message.channel.send('{}'.format(v))       
         
         #COMMANDES TIMER ####################################################################
         cmd='timer1'
@@ -189,7 +188,7 @@ class MyClient(discord.Client):
             nb = int(message.content[len(cmd):len(cmd)+10])
             mem = self.timer1
             self.timer1 = nb
-            await message.channel.send('TIMER 1 timer1 = {} -> {}\ntimer2 = {}'.format(mem,nb,self.timer2))
+            await message.channel.send('timer 1 timer1 = {} -> {}\ntimer2 = {}'.format(mem,nb,self.timer2))
             return
 
         cmd='timer2'
@@ -197,19 +196,30 @@ class MyClient(discord.Client):
             nb = int(message.content[len(cmd):len(cmd)+10])
             mem = self.timer2
             self.timer2 = nb
-            await message.channel.send('TIMER 1 timer1 = {} \ntimer2 = {}-> {}'.format(self.timer1,mem,self.timer2))
+            await message.channel.send('timer 1 timer1 = {} \ntimer2 = {}-> {}'.format(self.timer1,mem,self.timer2))
             return
 
-        cmd='timer'
+        cmd='timers'
         if message.content.startswith(cmd) and message.author.name in self.utilisateurs :
             #await message.channel.send(message.author.name)
             await message.channel.send('timer1 = {}\ntimer2 = {}'.format(self.timer1,self.timer2))
             return
 
-        if message.content.startswith('timer'):
+        if message.content.startswith('timers'):
             await message.channel.send('commande staff seulement {}'.format(message.author.name))
 
-        #COMMANDES CLEAR ##################################################################
+        #COMMANDES CLEAR ####################################################################
+        cmd='xclear'
+        if message.content.startswith(cmd) and message.author.name in self.utilisateurs :
+            nb = int(message.content[len(cmd):len(cmd)+10])+1
+            print('{} messages à supprimer'.format(nb -1))
+            await message.channel.purge(limit=nb)
+            await message.channel.send('{},{} messages supprimés !'.format(message.author.name,nb -1))
+            while True : #______________ATTENTION REPETITION AUTOMATIQUE DE LA COMMANDE
+                time.sleep(2)
+                await message.channel.purge(limit=nb-1)
+                await message.channel.send('{},{} messages supprimés !'.format(message.author.name,nb -1))
+
         cmd='clear'
         if message.content.startswith(cmd) and message.author.name in self.utilisateurs :
             nb = int(message.content[len(cmd):len(cmd)+10])+1
@@ -233,7 +243,7 @@ class MyClient(discord.Client):
             #await message.delete(delay=5)
             await message.channel.send('https://tenor.com/view/test-neko-test-neko-keyboard-test-neko-meow-meow-gif-14509709 §')
 
-        #DETECION MOT hors dictionaire traitement particulier #######################################
+        #DETECION MOT hors dictionnaire traitement particulier #######################################
 
         if str(message.content).lower().find('bonjour') >= 0 and str(message.content).find('@') == -1 :
             await message.channel.send('Bonjour, comment vas-tu {} ?'.format(message.author.name))
