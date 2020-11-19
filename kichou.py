@@ -209,17 +209,6 @@ class MyClient(discord.Client):
             await message.channel.send('commande staff seulement {}'.format(message.author.name))
 
         #COMMANDES CLEAR ####################################################################
-        cmd='xclear'
-        if message.content.startswith(cmd) and message.author.name in self.utilisateurs :
-            nb = int(message.content[len(cmd):len(cmd)+10])+1
-            print('{} messages à supprimer'.format(nb -1))
-            await message.channel.purge(limit=nb)
-            await message.channel.send('{},{} messages supprimés !'.format(message.author.name,nb -1))
-            while True : #______________ATTENTION REPETITION AUTOMATIQUE DE LA COMMANDE
-                time.sleep(2)
-                await message.channel.purge(limit=nb-1)
-                await message.channel.send('{},{} messages supprimés !'.format(message.author.name,nb -1))
-
         cmd='clear'
         if message.content.startswith(cmd) and message.author.name in self.utilisateurs :
             nb = int(message.content[len(cmd):len(cmd)+10])+1
