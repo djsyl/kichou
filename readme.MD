@@ -56,7 +56,7 @@ signes spéciaux utilisés dans un message
 
 § permet d'effacer un message aprés 15 secondes (parametrable T1 dans fichier dickichou)
 
-+ anti réaction (si placer dans une ligne évite la réaction du boot si un mot est détecté)
+caractète plus     anti réaction (si placer dans une ligne évite la réaction du boot si un mot est détecté)
 
 timers        affiche les temps de timers
 
