@@ -171,7 +171,7 @@ class MyClient(discord.Client):
         cmd= bot+' dictionnaire' ################ A REVOIR
         if message.content.startswith(cmd) and message.author.name in self.utilisateurs :
             for k,v in dickichou.items():
-                print('{} : {}"'.format(k,v))
+                print('{} : {} +'.format(k,v))
             return
         
         
@@ -244,13 +244,13 @@ class MyClient(discord.Client):
             await message.channel.send('https://tenor.com/view/test-neko-test-neko-keyboard-test-neko-meow-meow-gif-14509709 §')
 
         #DETECION MOT hors dictionnaire traitement particulier #######################################
-
-        if str(message.content).lower().find('bonjour') >= 0 and str(message.content).find('@') == -1 :
-            await message.channel.send('Bonjour, comment vas-tu {} ?'.format(message.author.name))
-            
-        if str(message.content).lower().find('hello') >= 0 and str(message.content).find('@') == -1 :
-            await message.channel.send('Hello, {} Comment ça va ?'.format(message.author.name))
-            print(str(message.content).find('@'))
+        if message.author.name != bot :
+            if str(message.content).lower().find('bonjour') >= 0 and str(message.content).find('@') == -1 :
+                await message.channel.send('Bonjour, comment vas-tu {} ?'.format(message.author.name))
+                
+            if str(message.content).lower().find('hello') >= 0 and str(message.content).find('@') == -1 :
+                await message.channel.send('Hello, {} Comment ça va ?'.format(message.author.name))
+                print(str(message.content).find('@'))
 
         #if str(message.content).lower().find('café') > -1:
         #    await message.channel.send('Moi aussi je veux bien un petit ☕ {} !'.format(message.author.name))
@@ -262,8 +262,8 @@ class MyClient(discord.Client):
         #if str(message.content).lower().find('poubelle') > -1:
         #   await message.channel.send('<:poubjaune:712187805643833424> §')
 
-        if str(message.content).lower().find('<@!773136088582717441>') > -1: #@kichou
-           await message.channel.send('Oui {} je suis la !'.format(message.author.name) )
+            if str(message.content).lower().find('<@!773136088582717441>') > -1: #@kichou
+                await message.channel.send('Oui {} je suis la !'.format(message.author.name) )
 
 
 client = MyClient()
