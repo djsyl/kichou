@@ -1,3 +1,5 @@
+T1=10
+T2=59
 dickichou={}
 dickichou["avion"]="https://www.inc-conso.fr/sites/default/files/styles/picture_article/public/avion-2_252.png?itok=7v3a8NxD §"
 dickichou["apero"]="https://tenor.com/view/baby-yoda-yoda-child-the-child-mandalorian-gif-16440753 §"
@@ -29,6 +31,6 @@ dickichou["tata"]="Tu veux dire tata yoyo ?"
 dickichou["faut"]="Le grand yaka fo con !"
 dickichou["étonne"]="Tu m'étonnes John 😎"
 dickichou["ok"]="https://tenor.com/view/ok-mickey-mouse-okay-good-gif-11256493 §"
-dickichou["jpty"]="c'est le plus yeuv ! œ"
+dickichou["jpty"]="c'est le plus beau ! "
 dickichou["elton"]="Tu m'étonne John 🤓"
 dickichou["étonné"]="Tu tétonnes John 😎"
