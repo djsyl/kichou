@@ -50,7 +50,10 @@ Python 3.6 ou supérieur
 
 installer la librairie discord.py dans python
 
-signes spéciaux utilisés dans un message
+
+
+
+**signes spéciaux utilisés dans un message et commandes **
 
 **Œ** permet d'effacer un message aprés 120 secondes (parametrable T1 dans fichier dickichou)
 
